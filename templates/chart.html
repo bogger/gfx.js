@@ -23,7 +23,9 @@ nv.addGraph(function() {
     chart.yAxis.tickFormat(d3.format("${yFormat}"))
     chart.xAxis.axisLabel("${xLabel}")
     chart.yAxis.axisLabel("${yLabel}")
-
+    chart.tooltipContent(function(key,x,y,e) {
+      return '<div style="word-wrap: normal;">' + e.point.tag + '</div>';
+    });
     d3.select('#${id} svg')
         .datum(${data})
         .call(chart);
